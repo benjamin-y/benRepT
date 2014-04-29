@@ -1,0 +1,71 @@
+#include<stdio.h>
+#include<time.h>
+/*#include <system.h>*/
+#include<conio.h>
+#include   <stdlib.h>
+#include<windows.h>
+
+void gotoxy(int a,int b);
+char *kw[]={"QWERTYUIOP[]","ASDFGHJKL;","ZXCVBNM,./"};
+long AllCounter=0,RightCounter=0,WrongCounter=0;
+
+main()
+{
+	int i,j;
+	int fun_Esc();
+	int fun_Play();
+	system("cls");
+	gotoxy(18,1);
+	printf("%s\n",kw[0]);
+	gotoxy(20,3);
+	printf("%s\n",kw[1]);
+	printf("%s\n",kw[2]);
+	gotoxy(11,25);
+	for(i=0;i<60;i++){
+		printf("=");
+		
+	}
+	gotoxy(1,1);
+	printf("AllCh:%ld\nRight: %ld\nWrong:%ld",AllCounter,RightCounter,WrongCounter);
+	gotoxy(50,1);
+	printf("Press Esc to exit");
+	gotoxy(50,2);
+	printf("Enter to pause");
+	gotoxy(26,12);
+	printf("* * * * * * * * * * * * * *");
+	gotoxy(26,13);
+	printf("* Press any key to start! *");
+	gotoxy(51,13);
+	if(	getchar()==27){
+		if(fun_Esc()==1)
+		{
+			system("cls");
+			exit(0);
+		}
+	}
+	gotoxy(23,12);
+	printf(" ");
+	gotoxy(23,13);
+	printf(" ");
+	gotoxy(23,14);
+	printf("");
+	while(1)
+		fun_Play();
+}
+int fun_Play(){
+	
+}
+int fun_Esc(){
+	
+}
+void gotoxy(int a, int b)
+{
+    int xx=0x0b;
+    HANDLE hOutput;
+    COORD loc;
+    loc.X =a;
+    loc.Y=b;
+    hOutput = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleCursorPosition(hOutput, loc);
+    return;
+}
